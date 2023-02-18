@@ -1,0 +1,22 @@
+version: "3"
+services:
+  backend:
+    image: backend-flask
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: "backend-app"
+    volumes:
+        - ./backend:/app
+    ports:
+      - "8081:8081"
+  frontend:
+    image: frontend-vue
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: "frontend-app"
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "8080:8080"
