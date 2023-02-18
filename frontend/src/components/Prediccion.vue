@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div class="container">
       <h1>Flask Vue Minimal Template</h1>
+      <br/>
       <form @submit.prevent="onSubmit">
         <div class="form-group">
           <label for="numero">Número: </label>
@@ -9,6 +10,7 @@
         <br/>
         <button type="submit" class="btn btn-primary">Realizar predicción</button>
       </form>
+      <br />
       <div v-if="prediccion">
         <h2>Predicción:</h2>
         <p>{{ prediccion }}</p>
