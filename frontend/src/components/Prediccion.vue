@@ -20,6 +20,8 @@
   
   <script>
 
+
+
   export default {
     name: 'Prediccion-item',
     data() {
@@ -30,8 +32,15 @@
     },
     methods: {
       async onSubmit() {
-        const response = await this.$http.post('/api/predict', { numero: this.numero })
-        this.prediccion = response.data.response
+        this.$http.post('/api/predict', { numero: this.numero })
+          .then(response => this.prediccion = response.data.response)
+          .catch(error => this.$swal({
+            title: 'Error',
+            text: error.response.data.message,
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          }))
+        //this.prediccion = response.data.response
       },
     },
   }
